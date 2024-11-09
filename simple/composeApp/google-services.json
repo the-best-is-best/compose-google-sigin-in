@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "608756724133",
+    "firebase_url": "https://devcody-2684e-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "devcody-2684e",
+    "storage_bucket": "devcody-2684e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:608756724133:android:42d2cb13a54bb5083bf84c",
+        "android_client_info": {
+          "package_name": "com.linkie.tech.cody"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "608756724133-3jqfprm9u5i6p3iol3lf5gda86990m0u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.linkie.tech.cody",
+            "certificate_hash": "c4018754d898ace9eb314c5c1849c75b4a02433d"
+          }
+        },
+        {
+          "client_id": "608756724133-mj7pg7pcrlvjjdrib1g050vgap51a1s3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBISqPSAohVIn3WPkauMCZhG-vjoZXxEwE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "608756724133-mj7pg7pcrlvjjdrib1g050vgap51a1s3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "608756724133-omnidr2brkle3pp9d2s30rd87olvj7d9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.linkie.tech.cody"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

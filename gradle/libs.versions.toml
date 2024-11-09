@@ -1,0 +1,44 @@
+[versions]
+composeUtils = "1.0.0"
+credentialsPlayServicesAuth = "1.3.0"
+firebaseAuth = "2.1.0"
+googleid = "1.1.1"
+kfirebase = "1.0.1"
+kotlin = "2.0.21"
+compose = "1.7.0"
+agp = "8.7.1"
+androidx-activityCompose = "1.9.3"
+androidx-uiTest = "1.7.5"
+maven-publish = "0.29.0"
+google-services = "4.4.2"
+playServicesAuth = "21.2.0"
+kotlinxCoroutinesCore = "1.9.0"
+
+
+
+[libraries]
+
+androidx-activityCompose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
+androidx-credentials = { module = "androidx.credentials:credentials", version.ref = "credentialsPlayServicesAuth" }
+androidx-credentials-play-services-auth = { module = "androidx.credentials:credentials-play-services-auth", version.ref = "credentialsPlayServicesAuth" }
+androidx-uitest-testManifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "androidx-uiTest" }
+androidx-uitest-junit4 = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "androidx-uiTest" }
+compose-utils = { module = "io.github.the-best-is-best:compose-utils", version.ref = "composeUtils" }
+firebase-auth = { module = "dev.gitlive:firebase-auth", version.ref = "firebaseAuth" }
+googleid = { module = "com.google.android.libraries.identity.googleid:googleid", version.ref = "googleid" }
+kfirebase-analytics = { module = "io.github.the-best-is-best:kfirebase-analytics", version.ref = "kfirebase" }
+play-services-auth = { group = "com.google.android.gms", name = "play-services-auth", version.ref = "playServicesAuth" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesCore" }
+kfirebase-core = { module = "io.github.the-best-is-best:kfirebase-core", version.ref = "kfirebase" }
+
+[plugins]
+
+multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+compose = { id = "org.jetbrains.compose", version.ref = "compose" }
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "maven-publish" }
+google-services = { id = "com.google.gms.google-services", version.ref = "google-services" }
+native-cocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
+

@@ -22,7 +22,7 @@
 ComposeSignWithGoogle is available on `mavenCentral()`.
 
 ```kotlin
-implementation("io.github.the-best-is-best:compose-google-sigin-in:1.0.0")
+implementation("io.github.the-best-is-best:compose-google-sigin-in:1.0.1")
 ```
 
 ## Need add this in pod file if not exist run ` pod init `

@@ -7,6 +7,7 @@ import androidx.credentials.ClearCredentialStateRequest
 import androidx.credentials.CredentialManager
 import androidx.credentials.CustomCredential
 import androidx.credentials.GetCredentialRequest
+import androidx.credentials.exceptions.GetCredentialCancellationException
 import com.google.android.libraries.identity.googleid.GetGoogleIdOption
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential.Companion.TYPE_GOOGLE_ID_TOKEN_CREDENTIAL
@@ -37,6 +38,7 @@ actual class KGoogleSignIn {
 
             val googleOption = GetGoogleIdOption.Builder()
                 .setServerClientId(clientId)
+                .setAutoSelectEnabled(true)
                 .setFilterByAuthorizedAccounts(setFilterByAuthorizedAccounts)
                 .build()
 
@@ -46,7 +48,6 @@ actual class KGoogleSignIn {
 
             CoroutineScope(Dispatchers.Main).launch {
                 try {
-                    // Run the suspend function getCredential within a coroutine
                     val credentialResponse = credentialManager.getCredential(
                         context = AndroidGoogleSignIn.getActivity(),
                         request = request
@@ -56,7 +57,6 @@ actual class KGoogleSignIn {
                         val googleIdTokenCredential =
                             GoogleIdTokenCredential.createFrom(credential.data)
                         val idToken = googleIdTokenCredential.idToken
-//                        saveBundle(credential.data)
                         cred = googleIdTokenCredential
                         cont.resume(
                             Result.success(
@@ -69,12 +69,14 @@ actual class KGoogleSignIn {
                     } else {
                         cont.resume(Result.failure(Exception("Unexpected type of credential")))
                     }
+                } catch (e: GetCredentialCancellationException) {
+                    // Handle the cancellation gracefully
+                    cont.resume(Result.failure(Exception("User canceled credential selection")))
                 } catch (e: Exception) {
                     cont.resumeWithException(e)
                 }
             }
         } catch (e: Exception) {
-            // Resume with failure if an exception occurred
             cont.resumeWithException(e)
         }
     }
@@ -153,24 +155,5 @@ actual class KGoogleSignIn {
     }
 
 
-//    actual fun getStoredCredential():Result<GoogleCredential> {
-//       val bundle = loadBundle() ?: return Result.failure(Exception("No data saved"))
-//        val googleIdTokenCredential = GoogleIdTokenCredential.createFrom(bundle)
-//        cred = googleIdTokenCredential
-//        return Result.success(
-//            GoogleCredential(
-//                idToken = googleIdTokenCredential.idToken,
-//                null
-//        ))
-//    } actual fun getStoredCredential():Result<GoogleCredential> {
-//       val bundle = loadBundle() ?: return Result.failure(Exception("No data saved"))
-//        val googleIdTokenCredential = GoogleIdTokenCredential.createFrom(bundle)
-//        cred = googleIdTokenCredential
-//        return Result.success(
-//            GoogleCredential(
-//                idToken = googleIdTokenCredential.idToken,
-//                null
-//        ))
-//    }
 
 }

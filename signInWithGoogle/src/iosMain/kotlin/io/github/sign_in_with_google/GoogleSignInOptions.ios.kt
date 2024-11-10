@@ -20,24 +20,42 @@ actual class KGoogleSignIn {
         clientId: String,
         setFilterByAuthorizedAccounts: Boolean
     ): Result<GoogleCredential> = suspendCancellableCoroutine { cont ->
-        val config = GIDConfiguration(clientId)
-        GIDSignIn.sharedInstance().configuration = config
-
-        val windowScene: UIWindowScene? =
-            UIApplication.sharedApplication.connectedScenes.first() as? UIWindowScene
-        val window = windowScene?.windows?.first() as? UIWindow
-        val rootViewController: UIViewController? = window?.rootViewController
-        if (rootViewController == null) {
-            cont.resumeWithException(Exception("There is no root view controller"))
-        }
-
         try {
-            GIDSignIn.sharedInstance.signInWithPresentingViewController(rootViewController!!) { result, error ->
+            val config = GIDConfiguration(clientId)
+            GIDSignIn.sharedInstance().configuration = config
+
+            val windowScene: UIWindowScene? =
+                UIApplication.sharedApplication.connectedScenes.first() as? UIWindowScene
+            val window = windowScene?.windows?.first() as? UIWindow
+            val rootViewController: UIViewController? = window?.rootViewController
+            if (rootViewController == null) {
+                cont.resumeWithException(Exception("There is no root view controller"))
+                return@suspendCancellableCoroutine
+            }
+
+            GIDSignIn.sharedInstance()
+                .signInWithPresentingViewController(rootViewController) { result, error ->
                 if (error != null) {
-                    cont.resumeWithException(Exception(error.localizedDescription()))
+                    // Check if the error is due to user cancellation
+                    if (error.localizedDescription()
+                            .contains("The user canceled the sign-in flow", ignoreCase = true)
+                    ) {
+                        // Handle the cancellation gracefully without throwing an exception
+                        cont.resume(Result.failure(Exception("The user canceled the sign-in flow")))
+                    } else {
+                        // Handle other errors
+                        cont.resumeWithException(Exception(error.localizedDescription()))
+                    }
+                    return@signInWithPresentingViewController
                 }
-                userData = result?.user
-                val idToken = result?.user?.idToken
+
+                    if (result == null) {
+                        cont.resumeWithException(Exception("Sign-in failed or the result is null"))
+                        return@signInWithPresentingViewController
+                    }
+
+                    userData = result.user
+                    val idToken = result.user.idToken
                 cont.resume(
                     Result.success(
                         GoogleCredential(
@@ -46,14 +64,13 @@ actual class KGoogleSignIn {
                         )
                     )
                 )
-
             }
 
         } catch (e: Exception) {
             cont.resumeWithException(e)
         }
-
     }
+
 
     actual suspend fun getUserData(): UserData? {
         if (userData == null) {

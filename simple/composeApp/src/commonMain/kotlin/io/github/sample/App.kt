@@ -36,7 +36,7 @@ internal fun App() = AppTheme {
             scope.launch {
                 val clientId: String =
                     if (PlatformData().name == "android") "608756724133-mj7pg7pcrlvjjdrib1g050vgap51a1s3.apps.googleusercontent.com" else "608756724133-omnidr2brkle3pp9d2s30rd87olvj7d9.apps.googleusercontent.com"
-                val cred = googleSign.getCredential(clientId)
+                val cred = googleSign.getCredential(clientId, true)
                 cred.onSuccess {
                     Firebase.auth.signInWithCredential(
                         authCredential = GoogleAuthProvider.credential(

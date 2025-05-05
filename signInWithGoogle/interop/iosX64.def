@@ -1,0 +1,3 @@
+language = Objective-C
+package = io.github.native.sign_in_with_google
+headers = /Users/michelleraouf/Desktop/kmm/compose-google-sigin-in/signInWithGoogle/interop/src/GoogleSignIn.h

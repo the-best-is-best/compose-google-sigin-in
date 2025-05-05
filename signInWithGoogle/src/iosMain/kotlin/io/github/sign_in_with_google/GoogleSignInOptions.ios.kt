@@ -1,8 +1,9 @@
 package io.github.sign_in_with_google
 
-import cocoapods.GoogleSignIn.GIDConfiguration
-import cocoapods.GoogleSignIn.GIDGoogleUser
-import cocoapods.GoogleSignIn.GIDSignIn
+
+import io.github.native.sign_in_with_google.GIDConfiguration
+import io.github.native.sign_in_with_google.GIDGoogleUser
+import io.github.native.sign_in_with_google.GIDSignIn
 import kotlinx.coroutines.suspendCancellableCoroutine
 import platform.UIKit.UIApplication
 import platform.UIKit.UIViewController
@@ -15,6 +16,18 @@ actual class KGoogleSignIn {
     companion object {
         var userData: GIDGoogleUser? = null
     }
+
+    fun initialize(clientId: String) {
+        val config = GIDConfiguration(clientId)
+        GIDSignIn.sharedInstance().configuration = config
+
+        GIDSignIn.sharedInstance.restorePreviousSignInWithCompletion { user, error ->
+            if (user != null) {
+                userData = user
+            }
+        }
+    }
+
 
     actual suspend fun getCredential(
         clientId: String,
@@ -93,21 +106,5 @@ actual class KGoogleSignIn {
         userData = null
     }
 
-//    actual fun getStoredCredential(): Result<GoogleCredential> {
-//       val currentUser = GIDSignIn.sharedInstance.currentUser
-//        userData = currentUser
-//        println("current user data is ${currentUser}")
-//        return if(userData == null){
-//            Result.failure(Exception("No data saved"))
-//        } else{
-//
-//            Result.success(
-//                GoogleCredential(
-//                    idToken = userData!!.idToken!!.tokenString,
-//                    accessToken = userData!!.accessToken.tokenString
-//                )
-//            )
-//        }
-//    }
 
 }

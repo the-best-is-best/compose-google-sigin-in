@@ -1,4 +1,6 @@
+
 package io.github.sign_in_with_google
+
 
 import android.app.Activity
 import java.lang.ref.WeakReference
@@ -14,3 +16,6 @@ object AndroidGoogleSignIn {
         this.activity = WeakReference(activity)
     }
 }
+
+
+

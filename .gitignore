@@ -13,5 +13,5 @@ local.properties
 xcuserdata/
 Pods/
 *.jks
+*.gpg
 *yarn.lock
-/simple/iosApp/Podfile.lock

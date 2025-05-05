@@ -1,7 +1,6 @@
 package io.github.sign_in_with_google
 
 expect class KGoogleSignIn() {
-    //   fun getStoredCredential():Result<GoogleCredential>
     suspend fun getCredential(
         clientId: String,
         setFilterByAuthorizedAccounts: Boolean = false

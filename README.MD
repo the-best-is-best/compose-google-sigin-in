@@ -39,7 +39,18 @@ AndroidGoogleSignIn.initialization(this)
 AndroidKMMCrypto.init("key0")
 ```
 
-### Second in commonMain
+### Second in iosMain
+
+```kotlin
+fun MainViewController(): UIViewController {
+    ....
+    KGoogleSignIn().initialize("com.googleusercontent.apps.204571788770-rhck30jdb0321gosbi07h94s50midf52")
+    ...
+    return ComposeUIViewController { App() }
+}
+```
+
+### Third in commonMain
 
 - Note i use firebase
 

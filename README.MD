@@ -6,7 +6,7 @@
     <img alt="API" src="https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat" style="max-width: 100%;">
 </a>
   <img src="https://img.shields.io/badge/Platform-Android-brightgreen.svg?logo=android" alt="Badge Android" />
-  <img src="https://img.shields.io/badge/iOS-13%2B-blue.svg?logo=apple" alt="iOS 13+ Badge" />
+  <img src="https://img.shields.io/badge/iOS-12%2B-blue.svg?logo=apple" alt="iOS 12+ Badge" />
 
 <a href="https://github.com/the-best-is-best/"><img alt="Profile" src="https://img.shields.io/badge/github-%23181717.svg?&style=for-the-badge&logo=github&logoColor=white" height="20"/></a>
 </div>
@@ -20,17 +20,13 @@
 ComposeSignWithGoogle is available on `mavenCentral()`.
 
 ```kotlin
-implementation("io.github.the-best-is-best:compose-google-sigin-in:1.0.1")
+implementation("io.github.the-best-is-best:compose-google-sigin-in:1.1.0")
 ```
 
-## Need add this in pod file if not exist run ` pod init `
+### ✅ **Install via SPM
 
-```pod
-  #  use_frameworks!
-   use_modular_headers!
-  pod "GoogleSignIn" , "8.0.0"
-  pod "GoogleSignInSwift" , "0.2.0"
-```
+You can install **GoogleSignIn** directly using **Swift Package Manager (SPM)** from:  
+🔗 [GoogleSignIn-iOS on GitHub](https://github.com/google/GoogleSignIn-iOS)
 
 ## How to use it
 
@@ -40,6 +36,7 @@ implementation("io.github.the-best-is-best:compose-google-sigin-in:1.0.1")
 
 ```kotlin
 AndroidGoogleSignIn.initialization(this)
+AndroidKMMCrypto.init("key0")
 ```
 
 ### Second in commonMain
@@ -75,7 +72,7 @@ AndroidGoogleSignIn.initialization(this)
             Firebase.auth.signOut()
         }
     }){
-        Text("Logut")
+        Text("Logout")
     }
 ```
 

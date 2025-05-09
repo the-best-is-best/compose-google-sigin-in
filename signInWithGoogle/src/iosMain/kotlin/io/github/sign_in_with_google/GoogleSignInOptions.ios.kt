@@ -19,9 +19,19 @@ actual class KGoogleSignIn {
 
     fun initialize(clientId: String) {
         val config = GIDConfiguration(clientId)
-        GIDSignIn.sharedInstance().configuration = config
+        GIDSignIn.sharedInstance.configuration = config
 
         GIDSignIn.sharedInstance.restorePreviousSignInWithCompletion { user, error ->
+            if (error != null) {
+                // Handle error
+                println("Error restoring previous sign-in: ${error.localizedDescription()}")
+            } else if (user == null) {
+                // No previous sign-in
+                println("No previous sign-in found.")
+            } else {
+                // Successfully restored previous sign-in
+                println("Successfully restored previous sign-in.")
+            }
             if (user != null) {
                 userData = user
             }

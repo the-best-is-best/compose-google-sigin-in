@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		41D0BAE62DC80DDF00BE960D /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 41D0BAE52DC80DDF00BE960D /* GoogleSignIn */; };
-		41D0BAE82DC80DDF00BE960D /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 41D0BAE72DC80DDF00BE960D /* GoogleSignInSwift */; };
 		41D0BAEA2DC80E2A00BE960D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41D0BAE92DC80E2A00BE960D /* GoogleService-Info.plist */; };
 		41D0BAED2DC80F0C00BE960D /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 41D0BAEC2DC80F0C00BE960D /* FirebaseCore */; };
 		A93A953B29CC810C00F8E227 /* iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93A953A29CC810C00F8E227 /* iosApp.swift */; };
@@ -32,7 +31,6 @@
 			files = (
 				41D0BAE62DC80DDF00BE960D /* GoogleSignIn in Frameworks */,
 				41D0BAED2DC80F0C00BE960D /* FirebaseCore in Frameworks */,
-				41D0BAE82DC80DDF00BE960D /* GoogleSignInSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,11 +396,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 41D0BAE42DC80DDF00BE960D /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignIn;
-		};
-		41D0BAE72DC80DDF00BE960D /* GoogleSignInSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 41D0BAE42DC80DDF00BE960D /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
-			productName = GoogleSignInSwift;
 		};
 		41D0BAEC2DC80F0C00BE960D /* FirebaseCore */ = {
 			isa = XCSwiftPackageProductDependency;

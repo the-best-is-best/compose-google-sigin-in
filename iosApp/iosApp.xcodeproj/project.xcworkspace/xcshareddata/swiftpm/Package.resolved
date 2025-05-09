@@ -1,5 +1,5 @@
 {
-  "originHash" : "de624bdd8bee1d97223c76fcf7f698eb5d12290a89312b5ab1c4d81cc5cdcf76",
+  "originHash" : "7bca75b74f902d9b514b910e6363eac428dcd35ecbb5d1f6c91ae8315a31ca18",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -107,6 +107,15 @@
       "state" : {
         "revision" : "040d087ac2267d2ddd4cca36c757d1c6a05fdbfe",
         "version" : "101.0.0"
+      }
+    },
+    {
+      "identity" : "kfirebaseauthinterop",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/the-best-is-best/KFirebaseAuthInterop",
+      "state" : {
+        "revision" : "ae563c86b59a47be6cbe657e950138f7a35d143a",
+        "version" : "0.1.0"
       }
     },
     {

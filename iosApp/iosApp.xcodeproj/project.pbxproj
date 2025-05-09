@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41502D762DCE691300F67A5C /* KFirebaseAuthInterop in Frameworks */ = {isa = PBXBuildFile; productRef = 41502D752DCE691300F67A5C /* KFirebaseAuthInterop */; };
 		41D0BAE62DC80DDF00BE960D /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 41D0BAE52DC80DDF00BE960D /* GoogleSignIn */; };
 		41D0BAEA2DC80E2A00BE960D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41D0BAE92DC80E2A00BE960D /* GoogleService-Info.plist */; };
 		41D0BAED2DC80F0C00BE960D /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 41D0BAEC2DC80F0C00BE960D /* FirebaseCore */; };
@@ -30,6 +31,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41D0BAE62DC80DDF00BE960D /* GoogleSignIn in Frameworks */,
+				41502D762DCE691300F67A5C /* KFirebaseAuthInterop in Frameworks */,
 				41D0BAED2DC80F0C00BE960D /* FirebaseCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -127,7 +129,7 @@
 			mainGroup = A93A952E29CC810C00F8E227;
 			packageReferences = (
 				41D0BAE42DC80DDF00BE960D /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
-				41D0BAEB2DC80F0C00BE960D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				41502D742DCE691300F67A5C /* XCRemoteSwiftPackageReference "KFirebaseAuthInterop" */,
 			);
 			productRefGroup = A93A953829CC810C00F8E227 /* Products */;
 			projectDirPath = "";
@@ -302,9 +304,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iosApp/Info.plist;
@@ -317,9 +321,14 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.kfirebase;
 				PRODUCT_NAME = "Demo App";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -328,9 +337,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iosApp/Info.plist;
@@ -343,9 +354,14 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.kfirebase;
 				PRODUCT_NAME = "Demo App";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -373,6 +389,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		41502D742DCE691300F67A5C /* XCRemoteSwiftPackageReference "KFirebaseAuthInterop" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/the-best-is-best/KFirebaseAuthInterop";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
 		41D0BAE42DC80DDF00BE960D /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
@@ -392,6 +416,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		41502D752DCE691300F67A5C /* KFirebaseAuthInterop */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 41502D742DCE691300F67A5C /* XCRemoteSwiftPackageReference "KFirebaseAuthInterop" */;
+			productName = KFirebaseAuthInterop;
+		};
 		41D0BAE52DC80DDF00BE960D /* GoogleSignIn */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 41D0BAE42DC80DDF00BE960D /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;

@@ -37,6 +37,9 @@ kotlin {
             implementation(libs.kfirebase.core)
 
             implementation(project(":signInWithGoogle"))
+
+            implementation(libs.kfirebase.auth)
+
         }
 
         commonTest.dependencies {
@@ -58,7 +61,7 @@ android {
     compileSdk = 35
 
     defaultConfig {
-        minSdk = 21
+        minSdk = 23
         targetSdk = 35
 
         applicationId = "org.company.app.androidApp"

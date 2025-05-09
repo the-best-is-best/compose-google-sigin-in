@@ -13,6 +13,9 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import io.github.firebase_auth.AuthProvider
+import io.github.firebase_auth.KAuthCredentials
+import io.github.firebase_auth.KFirebaseAuth
 import io.github.sign_in_with_google.KGoogleSignIn
 
 import io.gituhb.demo.theme.AppTheme
@@ -22,6 +25,7 @@ import kotlinx.coroutines.launch
 internal fun App() = AppTheme {
     val googleSign = KGoogleSignIn()
     val scope = rememberCoroutineScope()
+    val kFirebaseAuth = KFirebaseAuth()
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -32,15 +36,21 @@ internal fun App() = AppTheme {
         Button(onClick = {
             scope.launch {
                 val clientId: String =
-                    if (platform() == "Android") "204571788770-63q1akee6h2fgjdkafepa8jhouqh2csv.apps.googleusercontent.com" else "204571788770-rhck30jdb0321gosbi07h94s50midf52.apps.googleusercontent.com"
+                    kFirebaseAuth.getClient()
                 val cred = googleSign.getCredential(clientId, false)
                 cred.onSuccess {
                     println("id token is $it")
-//                    Firebase.auth.signInWithCredential(
-//                        authCredential = GoogleAuthProvider.credential(
-//                            idToken = it.idToken, accessToken = it.accessToken
-//                        )
-//                    )
+                    val user = kFirebaseAuth.signInWithCredential(
+                        credential = KAuthCredentials(
+                            idToken = it.idToken, accessToken = it.accessToken ?: "",
+                            provider = AuthProvider.GOOGLE
+                        )
+                    )
+                    user.onSuccess {
+                        println("user is $it")
+                    }.onFailure {
+                        println("error is $it")
+                    }
                 }
 
             }

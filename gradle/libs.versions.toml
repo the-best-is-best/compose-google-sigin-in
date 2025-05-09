@@ -1,5 +1,6 @@
 [versions]
 
+kfirebaseAuth = "1.1.0"
 kfirebaseCore = "1.2.0"
 kotlin = "2.1.20"
 compose = "1.7.3"
@@ -23,6 +24,7 @@ googleid = "1.1.1"
 androidx-activityCompose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
 androidx-uitest-testManifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "androidx-uiTest" }
 androidx-uitest-junit4 = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "androidx-uiTest" }
+kfirebase-auth = { module = "io.github.the-best-is-best:kfirebase-auth", version.ref = "kfirebaseAuth" }
 kfirebase-core = { module = "io.github.the-best-is-best:kfirebase-core", version.ref = "kfirebaseCore" }
 kmm-crypto = { module = "io.github.the-best-is-best:kmm-crypto", version.ref = "kfirebaseCore" }
 kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib", version.ref = "kotlinStdlib" }

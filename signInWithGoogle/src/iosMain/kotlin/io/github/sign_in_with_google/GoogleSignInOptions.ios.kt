@@ -6,8 +6,6 @@ import io.github.native.sign_in_with_google.GIDGoogleUser
 import io.github.native.sign_in_with_google.GIDSignIn
 import kotlinx.coroutines.suspendCancellableCoroutine
 import platform.UIKit.UIApplication
-import platform.UIKit.UIViewController
-import platform.UIKit.UIWindow
 import platform.UIKit.UIWindowScene
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
@@ -47,14 +45,16 @@ actual class KGoogleSignIn {
             val config = GIDConfiguration(clientId)
             GIDSignIn.sharedInstance().configuration = config
 
-            val windowScene: UIWindowScene? =
-                UIApplication.sharedApplication.connectedScenes.first() as? UIWindowScene
-            val window = windowScene?.windows?.first() as? UIWindow
-            val rootViewController: UIViewController? = window?.rootViewController
+            val windowScene = UIApplication.sharedApplication.connectedScenes()
+                .firstOrNull { it is UIWindowScene } as? UIWindowScene
+
+            val rootViewController = windowScene?.keyWindow?.rootViewController
+
             if (rootViewController == null) {
-                cont.resumeWithException(Exception("There is no root view controller"))
+                cont.resumeWithException(Exception("Root view controller is null"))
                 return@suspendCancellableCoroutine
             }
+
 
             GIDSignIn.sharedInstance()
                 .signInWithPresentingViewController(rootViewController) { result, error ->

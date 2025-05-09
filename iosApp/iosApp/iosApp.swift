@@ -1,12 +1,41 @@
 import SwiftUI
 import ComposeApp
-import FirebaseCore
+import Firebase
+import FirebaseAuth
+import GoogleSignIn
+
+class AppDelegate: NSObject, UIApplicationDelegate {
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        FirebaseApp.configure()
+        // Optional: Disable app verification for testing (remove in production)
+        Auth.auth().settings?.isAppVerificationDisabledForTesting = true
+        UNUserNotificationCenter.current().delegate = self as? UNUserNotificationCenterDelegate
+        return true
+    }
+    func application(_ application: UIApplication,
+                     didReceiveRemoteNotification userInfo: [AnyHashable : Any],
+                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        if Auth.auth().canHandleNotification(userInfo) {
+            completionHandler(.noData)
+            return
+        }
+        // Handle other notifications here
+        completionHandler(.newData)
+    }
+
+    
+    func application(_ app: UIApplication,
+                     open url: URL,
+                     options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+        return GIDSignIn.sharedInstance.handle(url)
+    }
+}
 
 @main
 struct ComposeApp: App {
-    init (){
-        FirebaseApp.configure()
-    }
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+
     var body: some Scene {
         WindowGroup {
             ContentView().ignoresSafeArea(.all)

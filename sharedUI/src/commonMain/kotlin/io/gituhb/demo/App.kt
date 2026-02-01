@@ -22,7 +22,7 @@ import io.gituhb.demo.theme.AppTheme
 import kotlinx.coroutines.launch
 
 @Composable
-internal fun App() = AppTheme {
+fun App() = AppTheme {
     val googleSign = KGoogleSignIn()
     val scope = rememberCoroutineScope()
     val kFirebaseAuth = KFirebaseAuth()

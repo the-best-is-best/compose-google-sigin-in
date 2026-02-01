@@ -1,4 +1,3 @@
-import com.vanniktech.maven.publish.SonatypeHost
 import org.gradle.nativeplatform.platform.internal.DefaultNativePlatform.getCurrentOperatingSystem
 
 plugins {
@@ -32,7 +31,7 @@ tasks.withType<PublishToMavenRepository> {
 
 extra["groupId"] = "io.github.the-best-is-best"
 extra["artifactId"] = "compose-google-sigin-in"
-extra["version"] = "1.1.0"
+extra["version"] = "1.1.1"
 extra["packageName"] = "ComposeSignWithGoogle"
 extra["packageUrl"] = "https://github.com/the-best-is-best/compose-google-sigin-in"
 extra["packageDescription"] =
@@ -53,7 +52,7 @@ mavenPublishing {
         extra["version"].toString()
     )
 
-    publishToMavenCentral(SonatypeHost.S01, true)
+    publishToMavenCentral(true)
     signAllPublications()
 
     pom {
@@ -176,11 +175,7 @@ kotlin {
             }
         }
 
-        commonTest {
-            dependencies {
-                implementation(libs.kotlin.test)
-            }
-        }
+
 
         androidMain {
             dependencies {

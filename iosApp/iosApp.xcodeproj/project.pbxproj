@@ -169,7 +169,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd \"$SRCROOT/..\"\n./gradlew :composeApp:embedAndSignAppleFrameworkForXcode\n";
+			shellScript = "cd \"$SRCROOT/..\"\n./gradlew :sharedUI:embedAndSignAppleFrameworkForXcode\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -394,7 +394,7 @@
 			repositoryURL = "https://github.com/the-best-is-best/KFirebaseAuthInterop";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.0;
+				minimumVersion = 1.0.1;
 			};
 		};
 		41D0BAE42DC80DDF00BE960D /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
@@ -402,7 +402,7 @@
 			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 8.0.0;
+				minimumVersion = 9.1.0;
 			};
 		};
 		41D0BAEB2DC80F0C00BE960D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {

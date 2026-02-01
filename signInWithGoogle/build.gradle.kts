@@ -98,7 +98,7 @@ kotlin {
 // See: https://kotlinlang.org/docs/multiplatform-discover-project.html#targets
     androidLibrary {
         namespace = "io.github.sign_in_with_google"
-        compileSdk = 35
+        compileSdk = 36
         minSdk = 21
 
 
@@ -201,6 +201,7 @@ kotlin {
             }
         }
     }
+
 
 }
 
